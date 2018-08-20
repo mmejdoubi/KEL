@@ -1,0 +1,36 @@
+taux de penetration des gens scorés dans credit bureau
+
+Current loan & previous loan are more reliable data for scoring
+
+very low revolving card in application / previous_application ds
+
+POS loan => credit conso
+
+montant credit_conso = AMT_GOODS_PRICE - AMT_DOWN_PAYMENT
+
+montal total = AMT_CREDIT
+
+mensualites = AMT_INSTALMENT in due_date
+AMT_ANNUITY in application dataset
+
+===============
+
+Installment cash loan: (pret personnel) => plus risky
+
+First few installments are more important than last installments. You know, it’s human nature. When loan applicant late once, he might be late from then. HC will want to make sure loan applicant is always on time from the beginning
+
+Longer loan is always risker than shorter loan. The longer the loan, the higher chance people default will be larger. Therefore, it should be normalized for all loans to be equal (right?)
+
+=======================
+
+x-sell means customers already evaluated risk by previous loans (loans in HC even before previous_application), before giving the loan. This is very valuable feature.
+==============
+
+source_mean = moyenne des scores
+
+df['NEW_EXT_SOURCES_MEAN'] = df[['EXT_SOURCE_1', 'EXT_SOURCE_2', 'EXT_SOURCE_3']].mean(axis=1)
+
+df['NEW_ANNUITY_TO_INCOME_RATIO'] = df['AMT_ANNUITY'] / (1 + df['AMT_INCOME_TOTAL'])
+
+df['NEW_INC_PER_CHLD'] = df['AMT_INCOME_TOTAL'] / (1 + df['CNT_CHILDREN'])
+
